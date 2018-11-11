@@ -1,6 +1,10 @@
 let express = require("express");
 let bodyParser = require("body-parser");
 
+let mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://s.jakimovski94:m4k3d0n3c@ds053828.mlab.com:53828/express-practice");
+
 
 const app = express();
 app.use(express.static('public'))
@@ -8,19 +12,13 @@ app.use(bodyParser.json());
 
 
 let ContactRoutes  = require("./routes/ContactRoutes");
-
-app.use(ContactRoutes);
-
 let CommentRoutes  = require("./routes/CommentRoutes");
-
-app.use(CommentRoutes);
-
 let ProductRoutes  = require("./routes/ProductRoutes");
-
-app.use(ProductRoutes);
-
 let VehicleRoutes  = require("./routes/VehicleRoutes");
 
+app.use(ContactRoutes);
+app.use(CommentRoutes);
+app.use(ProductRoutes);
 app.use(VehicleRoutes);
 
 //default
