@@ -20,3 +20,6 @@ module.exports = [
     "postId": 1
   }
 ];
+
+
+getComputedS
